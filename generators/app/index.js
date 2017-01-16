@@ -40,7 +40,20 @@ module.exports = generators.Base.extend({
         name: 'name',
         message: 'Project name',
         when: !this.pkg.name,
-        default: this.props.name
+        default: this.props.name,
+        validate: function(input) {
+          if (!input.match(/^[$A-Z_][0-9A-Z_$]*$/i)) {
+            return `${input} is not a valid name for a project.
+Please use a valid identifier name (alphanumeric).`;
+          }
+
+          else if (input === 'React') {
+            return `${input} is not a valid name for a project.
+Please do not use the reserved word "React"`;
+          } else {
+            return true;
+          }
+        }
       },
       {
         name: 'description',
@@ -294,5 +307,6 @@ module.exports = generators.Base.extend({
     this.log('\nWoot! We\'ve created your "' + this.props.name + '" app!');
 
     this.log('To start your reazy app run `react-native run-ios` or `react-native run-android`.');
+    process.exit(0);
   }
 });
