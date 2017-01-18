@@ -2,9 +2,7 @@
 
 var generators = require('yeoman-generator');
 var path = require('path');
-var crypto = require('crypto');
 var updateMixin = require('../../lib/updateMixin');
-var S = require('string');
 var assign = require('object.assign').getPolyfill();
 
 module.exports = generators.Base.extend({
@@ -18,14 +16,15 @@ module.exports = generators.Base.extend({
     this.pkg = this.fs.readJSON(this.destinationPath('package.json'), {});
     this.props = {
       name: this.pkg.name || process.cwd().split(path.sep).pop(),
-      description: this.pkg.description,
-      S: S
+      description: this.pkg.description
     };
 
     this.dependencies = [
-      'native-base@0.5.18',
+      'native-base@0.5.22',
+      'react-native-vector-icons@4.0.0',
       'react@15.4.1',
-      'react-native@0.39.2',
+      'react-native-router-flux@3.37.0',
+      'react-native@0.40.0',
       'reazy',
       'mobx@3.0.0',
       'mobx-react@4.1.0'
@@ -294,11 +293,12 @@ Please do not use the reserved word "React"`;
 
       var self = this;
 
+      this.npmInstall(devDependencies, { saveDev: true});
       this.npmInstall(this.dependencies, { save: true }, function() {
         self.spawnCommandSync('react-native', ['upgrade']);
+        self.spawnCommandSync('react-native', ['link']);
         self.fs.copy(self.templatePath('_babelrc'), self.destinationPath('', '.babelrc'));
       });
-      this.npmInstall(devDependencies, { saveDev: true});
 
     }
   },
