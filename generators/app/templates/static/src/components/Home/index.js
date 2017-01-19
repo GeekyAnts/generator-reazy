@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, H1, Text } from 'native-base';
 import { observer, inject } from 'mobx-react/native';
 
-@inject("view.app", "domain.user", "app")
+@inject("view.app", "domain.user", "app", "routerActions")
 @observer
 class Home extends Component {
 

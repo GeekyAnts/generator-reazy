@@ -25,6 +25,7 @@ module.exports = generators.Base.extend({
       'react@15.4.1',
       'react-native-router-flux@3.37.0',
       'react-native@0.40.0',
+      'reazy-native-router-actions@0.0.2',
       'reazy',
       'mobx@3.0.0',
       'mobx-react@4.1.0'

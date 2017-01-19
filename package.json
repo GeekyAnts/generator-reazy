@@ -35,6 +35,7 @@
   "files": [
     "generators/app",
     "generators/service",
+    "generators/install-plugin",
     "lib"
   ],
   "dependencies": {
