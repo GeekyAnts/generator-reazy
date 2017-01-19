@@ -1,7 +1,7 @@
 {
   "name": "generator-reazy",
   "description": "A Yeoman generator for a Reazy application",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/GeekyAnts/generator-reazy",
   "main": "generators/app/index.js",
   "license": "MIT",
