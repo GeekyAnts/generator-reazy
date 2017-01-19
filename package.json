@@ -27,10 +27,7 @@
     "release:patch": "npm version patch && npm publish",
     "release:minor": "npm version minor && npm publish",
     "release:major": "npm version major && npm publish",
-    "jshint": "jshint lib/. generators/**/index.js test/. --config",
-    "test:transform": "mocha test/transform.test.js --compilers js:babel-core/register",
-    "test:generators": "mocha test/generators.test.js --timeout 300000",
-    "test": "npm run jshint && npm run test:transform && npm run test:generators"
+    "jshint": "jshint lib/. generators/**/index.js test/. --config"
   },
   "files": [
     "generators/app",
