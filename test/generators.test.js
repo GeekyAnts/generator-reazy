@@ -23,7 +23,7 @@ describe('generator-feathers', function() {
       if(status !== 0) {
         return done(new Error(buffer));
       }
-      
+
       assert.ok(buffer.indexOf(expectedText) !== -1,
         'Ran test with text: ' + expectedText);
       done();
@@ -31,7 +31,7 @@ describe('generator-feathers', function() {
   }
 
   before(function(done) {
-    helpers.run(path.join(__dirname, '../generators/app'))
+    helpers.run(path.join(__dirname, '../dist/generators/app'))
       .inTmpDir(function(dir) {
         appDir = dir;
       })
@@ -55,7 +55,7 @@ describe('generator-feathers', function() {
   });
 
   it('feathers:service(memory)', function(done) {
-    helpers.run(path.join(__dirname, '../generators/service'))
+    helpers.run(path.join(__dirname, '../dist/generators/service'))
       .inTmpDir(function() {
         process.chdir(appDir);
       })
@@ -70,7 +70,7 @@ describe('generator-feathers', function() {
   });
 
   it('feathers:service(generic)', function(done) {
-    helpers.run(path.join(__dirname, '../generators/service'))
+    helpers.run(path.join(__dirname, '../dist/generators/service'))
       .inTmpDir(function() {
         process.chdir(appDir);
       })
@@ -84,7 +84,7 @@ describe('generator-feathers', function() {
   });
 
   it('feathers:hook', function(done) {
-    helpers.run(path.join(__dirname, '../generators/hook'))
+    helpers.run(path.join(__dirname, '../dist/generators/hook'))
       .inTmpDir(function() {
         process.chdir(appDir);
       })

@@ -27,14 +27,10 @@
     "release:patch": "npm version patch && npm publish",
     "release:minor": "npm version minor && npm publish",
     "release:major": "npm version major && npm publish",
-    "jshint": "jshint lib/. generators/**/index.js test/. --config"
+    "jshint": "jshint lib/. generators/**/index.js test/. --config",
+    "build": "babel src --presets babel-preset-es2015 --ignore /templates --out-dir dist",
+    "watch": "babel src --presets babel-preset-es2015 --ignore /templates/ --watch --out-dir dist"
   },
-  "files": [
-    "generators/app",
-    "generators/service",
-    "generators/install-plugin",
-    "lib"
-  ],
   "dependencies": {
     "ast-traverse": "^0.1.1",
     "chalk": "^1.1.1",
