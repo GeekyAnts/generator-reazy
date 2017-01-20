@@ -5,7 +5,7 @@ var chalk = require('chalk');
 var stringLength = require('string-length');
 var repeating = require('repeating');
 var spawn = require('cross-spawn-async');
-var pkg = require('../package.json');
+var pkg = require('../../package.json');
 /**
  * Generates the message to display when a new update is available
  * @param  {Object} update - The update object coming from update-notifier
